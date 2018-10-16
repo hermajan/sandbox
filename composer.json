@@ -1,0 +1,32 @@
+{
+	"name": "hermajan/sandbox",
+	"description": "The sandbox is a pre-packaged Nette Framework project, basic configured structure for your application.",
+	"type": "project",
+	"license": "MIT",
+	
+	"homepage": "https://hermajan.net/sandbox",
+	"support": {
+		"issues": "https://github.com/hermajan/sandbox/issues"
+	},
+	
+	"config": {
+		"vendor-dir": "vendor",
+		"preferred-install": "dist",
+		"sort-packages": true,
+		"optimize-autoloader": true
+	},
+	"minimum-stability": "stable",
+	
+	"require": {
+		"php": "^7.1.0",
+		"doctrine/dbal": "^2.5",
+		"hermajan/booty": "dev-master",
+		"hermajan/dobine": "^0.1.0",
+		"hermajan/fazette": "^0.1.0",
+		"nette/nette": "^2.4",
+		"vlucas/phpdotenv": "^2.5"
+	},
+	"require-dev": {
+		"nette/tester": "^2.0"
+	}
+}
