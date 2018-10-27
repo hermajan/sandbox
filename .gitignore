@@ -12,6 +12,7 @@ composer.phar
 app/config/keys.neon
 app/config/stage.neon
 app/config/production.neon
+desktop.ini
 
 !.htaccess
 !web.config

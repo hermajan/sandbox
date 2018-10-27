@@ -1,14 +1,22 @@
 <?php
-require __DIR__ . "/../vendor/autoload.php";
+require __DIR__."/../vendor/autoload.php";
 
 use Nette\Configurator;
-use Tester\Environment;
+use Tester\{Dumper, Environment};
 
 Environment::setup();
+date_default_timezone_set("Europe/Prague");
 
 $configurator = new Configurator;
 $configurator->setDebugMode(false);
-$configurator->setTempDirectory(__DIR__."/../temp");
+
+$temp = __DIR__."/../.temp";
+if(!is_dir($temp)) {
+	mkdir($temp, 0777, true);
+}
+$configurator->setTempDirectory($temp);
+Dumper::$dumpDir = $temp."/tests";
+
 $configurator->createRobotLoader()
 	->addDirectory(__DIR__."/../app")
 	->register();
