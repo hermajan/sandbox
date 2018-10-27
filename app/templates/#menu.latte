@@ -1,0 +1,25 @@
+{block #menu}
+<nav class="panel panel-default">
+	<header class="panel-heading" id="default-index.php" onclick="window.location={$basePath};">
+		<h4 class="panel-title">
+			<a href="#">Menu</a>
+			
+			<span class="pull-right">
+				<a href="#">right</a>
+			</span>
+		</h4>
+	</header>
+	
+	<article class="panel-body">
+		<ul class="nav nav-pills nav-stacked">
+			<li id="default-sub"><a href="#sub">Subtitle</a></li>
+			<li><a href="#">Link 1</a></li>
+			<ul class="nav nav-pills nav-stacked inside">
+				<li><a href="#">Link 2</a></li>
+				<li><a href="#">Link 3</a></li>
+			</ul>
+			<li><a href="#">Link 4</a></li>
+		</ul>
+	</article>
+</nav>
+{/block}

@@ -1,0 +1,10 @@
+parameters:
+	meta:
+		color: "#5a7db0"
+		description: ""
+		author: "hermajan"
+		robots: ""
+		
+		title: ""
+		separator: "-"
+		name: "Sandbox"

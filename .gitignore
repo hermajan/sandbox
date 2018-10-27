@@ -2,6 +2,7 @@ nbproject/
 .idea/
 
 _log/
+*.log
 .temp/
 
 node_modules/

@@ -1,0 +1,27 @@
+{block #header}
+<nav class="navbar-header">
+	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	</button>
+
+	<a href="{$basePath}" class="navbar-brand">
+		<img src="{$basePath}/favicon.ico" class="logo" alt="logo">	{$meta["name"]}
+	</a>
+</nav>
+
+<nav class="collapse navbar-collapse">
+	<ul class="nav navbar-nav">
+		<li id="default-navbar"><a href="{$basePath}"><i class="fas fa-home fa-lg"></i></a></li>
+		<li><a href="#">First</a></li>
+		<li><a href="#">Second</a></li>
+	</ul>
+	
+	<div class="navbar-right">
+		<ul class="nav navbar-nav">
+			<li><a href="#">Right navbar</a></li>
+		</ul>
+	</div>
+</nav>
+{/block}
