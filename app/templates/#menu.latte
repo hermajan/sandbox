@@ -1,25 +1,20 @@
 {block #menu}
-<nav class="panel panel-default">
-	<header class="panel-heading" id="default-index.php" onclick="window.location={$basePath};">
-		<h4 class="panel-title">
-			<a href="#">Menu</a>
-			
-			<span class="pull-right">
-				<a href="#">right</a>
-			</span>
-		</h4>
+<nav class="card">
+	<header class="card-header" id="default-index.php" onclick="window.location='{$baseUrl|noescape}';">
+		<a href="#">Menu</a>
+		<a href="#">right</a>
 	</header>
 	
-	<article class="panel-body">
-		<ul class="nav nav-pills nav-stacked">
-			<li id="default-sub"><a href="#sub">Subtitle</a></li>
-			<li><a href="#">Link 1</a></li>
-			<ul class="nav nav-pills nav-stacked inside">
-				<li><a href="#">Link 2</a></li>
-				<li><a href="#">Link 3</a></li>
-			</ul>
-			<li><a href="#">Link 4</a></li>
-		</ul>
+	<article class="card-body">
+		<div class="list-group list-group-flush">
+			<a href="#sub" class="list-group-item list-group-item-action" id="default-sub">Subtitle</a>
+			<a href="#" class="list-group-item list-group-item-action">Link 1</a></li>
+			<div class="list-group list-group-flush inside">
+				<a href="#" class="list-group-item list-group-item-action">Link 2</a>
+				<a href="#" class="list-group-item list-group-item-action">Link 3</a>
+			</div>
+			<a href="#" class="list-group-item list-group-item-action">Link 4</a>
+		</div>
 	</article>
 </nav>
 {/block}

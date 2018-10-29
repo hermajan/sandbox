@@ -17,7 +17,7 @@
 </head>
 
 <body>
-	<header id="header" class="navbar navbar-default navbar-static-top navbar-inverse" n:ifset="$headerFile">
+	<header id="header" class="navbar navbar-dark navbar-expand-md" n:ifset="$headerFile">
 		<div class="container-fluid">
 			{include $headerFile}
 		</div>
@@ -32,12 +32,12 @@
 				{var $cols = ""}
 			{/ifset}
 
-				<article class="col-xs-12 {$cols}" id="content">
+				<article class="col-12 {$cols}" id="content">
 					<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type}" role="alert">{$flash->message}</div>
 					{include #content}
 				</article>
 				
-				<aside class="col-xs-12 col-sm-4 col-md-3 col-lg-2 hidden-print" id="menu" n:ifset="$menuFile">
+				<aside class="col-12 col-sm-4 col-md-3 col-lg-2 d-print-none" id="menu" n:ifset="$menuFile">
 					{include $menuFile}
 				</aside>
 			</div>
