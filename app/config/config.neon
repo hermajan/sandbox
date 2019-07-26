@@ -25,7 +25,7 @@ doctrine:
 
 latte:
 	macros:
-		- Fazette\latte\Fa
+		- Fazette\Latte\Fa
 
 session:
 	expiration: 14 days

@@ -1,18 +1,19 @@
-nbproject/
-.idea/
+/nbproject
+/.idea
 
-_log/
+/.docker/mysql
+
+/_log
 *.log
-.temp/
+/.temp
 
-node_modules/
-vendor/
-composer.phar
+/node_modules
+/vendor
 
-app/config/keys.neon
-app/config/stage.neon
-app/config/production.neon
-desktop.ini
+/app/config/keys.neon
+/app/config/stage.neon
+/app/config/production.neon
+/desktop.ini
 
 !.htaccess
 !web.config

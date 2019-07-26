@@ -1,6 +1,11 @@
 <?php
+use Dotenv\Dotenv;
 
-$container = require __DIR__ . '/app/bootstrap.php';
+require_once __DIR__."/vendor/autoload.php";
 
-$container->getByType(Nette\Application\Application::class)
-	->run();
+$dotenv = new Dotenv(__DIR__);
+$dotenv->load();
+
+// Add Nette
+require_once __DIR__."/app/bootstrap.php";
+

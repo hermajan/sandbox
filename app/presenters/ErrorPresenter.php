@@ -26,14 +26,14 @@ final class ErrorPresenter implements IPresenter {
 		if($e instanceof BadRequestException) {
 			// $this->logger->log("HTTP code {$e->getCode()}: {$e->getMessage()} in {$e->getFile()}:{$e->getLine()}", "access");
 			list($module, , $sep) = Helpers::splitName($request->getPresenterName());
-			$errorPresenter = $module . $sep . "Error4xx";
+			$errorPresenter = $module.$sep."Error4xx";
 			return new ForwardResponse($request->setPresenterName($errorPresenter));
 		}
 		
 		$this->logger->log($e, ILogger::EXCEPTION);
 		return new CallbackResponse(function(IRequest $httpRequest, IResponse $httpResponse) {
 			if(preg_match("#^text/html(?:;|$)#", $httpResponse->getHeader("Content-Type"))) {
-				require __DIR__ . "/../templates/Error/500.phtml";
+				require __DIR__."/../templates/Error/500.phtml";
 			}
 		});
 	}

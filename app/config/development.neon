@@ -3,10 +3,10 @@ application:
 	silentLinks: false
 	
 doctrine:
-	host: localhost
+	host: db
 	user: root
-	password: ''
-	dbname: database
+	password: 'heslo'
+	dbname: sandbox
 
 tracy:
 	strictMode: true

@@ -20,9 +20,8 @@
 	"require": {
 		"php": "^7.1",
 		"doctrine/dbal": "^2.5",
-		"hermajan/booty": "dev-master",
 		"hermajan/dobine": "^0.1.0",
-		"hermajan/fazette": "^0.1.0",
+		"hermajan/fazette": "^0.2.0",
 		"kdyby/doctrine": "^3.3",
 		"nette/nette": "^2.4",
 		"vlucas/phpdotenv": "^2.5"

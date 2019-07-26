@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "039d232c29df7f4ec5089e8d9e3432f9",
+    "content-hash": "e30edf40b9e44ba6eee3594fe599f1fc",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -633,12 +633,12 @@
             "version": "v2.6.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/doctrine/doctrine2.git",
+                "url": "https://github.com/doctrine/orm.git",
                 "reference": "434820973cadf2da2d66e7184be370084cc32ca8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/434820973cadf2da2d66e7184be370084cc32ca8",
+                "url": "https://api.github.com/repos/doctrine/orm/zipball/434820973cadf2da2d66e7184be370084cc32ca8",
                 "reference": "434820973cadf2da2d66e7184be370084cc32ca8",
                 "shasum": ""
             },
@@ -868,34 +868,6 @@
             "time": "2018-06-14T14:45:07+00:00"
         },
         {
-            "name": "hermajan/booty",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/hermajan/booty.git",
-                "reference": "3e908298b4cb599d5153bb406a6df0d3f388258e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/hermajan/booty/zipball/3e908298b4cb599d5153bb406a6df0d3f388258e",
-                "reference": "3e908298b4cb599d5153bb406a6df0d3f388258e",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.0"
-            },
-            "require-dev": {
-                "latte/latte": "^2.4"
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "homepage": "https://hermajan.net/booty",
-            "time": "2018-11-29T00:53:50+00:00"
-        },
-        {
             "name": "hermajan/dobine",
             "version": "v0.1",
             "source": {
@@ -939,26 +911,28 @@
         },
         {
             "name": "hermajan/fazette",
-            "version": "v0.1",
+            "version": "v0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hermajan/fazette.git",
-                "reference": "6ea5aeb6623dd0377aaa840d6a7d2d70effa8906"
+                "reference": "05658d854735cf8105052e3c606c16cbbbc941bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hermajan/fazette/zipball/6ea5aeb6623dd0377aaa840d6a7d2d70effa8906",
-                "reference": "6ea5aeb6623dd0377aaa840d6a7d2d70effa8906",
+                "url": "https://api.github.com/repos/hermajan/fazette/zipball/05658d854735cf8105052e3c606c16cbbbc941bc",
+                "reference": "05658d854735cf8105052e3c606c16cbbbc941bc",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0"
             },
             "require-dev": {
+                "hermajan/booty": "dev-master",
                 "latte/latte": "^2.4",
                 "nette/forms": "^2.4",
                 "nette/tester": "^2.0",
-                "nette/utils": "^2.4"
+                "nette/utils": "^2.4",
+                "tracy/tracy": "^2.5"
             },
             "type": "library",
             "autoload": {
@@ -972,7 +946,7 @@
             ],
             "description": "Extensions for Nette framework.",
             "homepage": "https://hermajan.net/fazette",
-            "time": "2018-02-08T22:19:12+00:00"
+            "time": "2018-11-11T23:34:32+00:00"
         },
         {
             "name": "kdyby/annotations",
@@ -3191,9 +3165,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "hermajan/booty": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

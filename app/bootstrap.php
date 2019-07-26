@@ -1,19 +1,41 @@
 <?php
-require __DIR__ . "/../vendor/autoload.php";
+require __DIR__."/../vendor/autoload.php";
 
+use Nette\Application\Application;
 use Nette\Configurator;
 
 // Let bootstrap create Dependency Injection container.
 $configurator = new Configurator;
 $configurator->setTimeZone("Europe/Prague");
 
-// Enable Nette Debugger for error visualisation & logging
+// Enable Tracy for error visualization
+if(isset($_ENV["APP_ENV"])) {
+	switch($_ENV["APP_ENV"]) {
+		case "development":
+		default:
+			$configurator->setDebugMode(true);
+			break;
+		
+		case "stage":
+		case "production":
+			$configurator->setDebugMode(false);
+			break;
+	}
+} else {
+	throw new RuntimeException("You did not set environment in .env file!");
+}
+
+// Enable error logging
 $logDir = __DIR__."/../_log";
-if(!file_exists($logDir)) { mkdir($logDir, 0777, true); }
+if(!is_dir($logDir)) {
+	mkdir($logDir, 0777, true);
+}
 $configurator->enableTracy($logDir);
 
 $tempDir = __DIR__."/../.temp";
-if(!file_exists($tempDir)) { mkdir($tempDir, 0777, true); }
+if(!is_dir($tempDir)) {
+	mkdir($tempDir, 0777, true);
+}
 $configurator->setTempDirectory($tempDir);
 
 // Enable RobotLoader - this will load all classes automatically
@@ -23,24 +45,7 @@ $configurator->createRobotLoader()
 
 $configurator->addConfig(__DIR__."/config/config.neon");
 $configurator->addConfig(__DIR__."/config/parameters.neon");
-
-if(isset($_ENV["APP_ENV"])) {
-	switch($_ENV["APP_ENV"]) {
-		case "dev": case "development": default:
-			$configurator->addConfig(__DIR__."/config/development.neon");
-			break;
-			
-		case "stage":
-			$configurator->addConfig(__DIR__."/config/stage.neon");
-			break;
-			
-		case "prod": case "production":
-			$configurator->addConfig(__DIR__."/config/production.neon");
-			break;
-	}
-} else {
-	$configurator->addConfig(__DIR__."/config/development.neon");
-}
+$configurator->addConfig(__DIR__."/config/".$_ENV["APP_ENV"].".neon");
 
 $container = $configurator->createContainer();
-return $container;
+$container->getByType(Application::class)->run();
