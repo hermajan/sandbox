@@ -39,7 +39,7 @@ function validate() {
     php "index.php" orm:validate-schema
 }
 
-if [ "${COMMAND}" == "" ]; then
+if [[ "${COMMAND}" == "" ]]; then
     help
 fi
 

@@ -26,10 +26,10 @@ function clean() {
 
 function ip() {
 	echo "www"
-	docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' zitkino_www_1
+	docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sandbox_www_1
 
 	echo "database"
-	docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' zitkino_db_1
+	docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sandbox_db_1
 }
 
 function logs() {
@@ -48,14 +48,14 @@ function restart() {
 function ssh() {
     local USER="root"
 
-    if [ "${1}" != "" ]; then
+    if [[ "${1}" != "" ]]; then
         USER=$1
     fi
 
-    docker exec -u ${USER} -it zitkino_www_1 bash
+    docker exec -u ${USER} -it sandbox_www_1 bash
 }
 
-if [ "${COMMAND}" == "" ]; then
+if [[ "${COMMAND}" == "" ]]; then
     help
 fi
 

@@ -19,14 +19,20 @@
 	
 	"require": {
 		"php": "^7.1",
-		"doctrine/dbal": "^2.5",
+		"doctrine/dbal": "^2.9",
+		"doctrine/orm": "^2.6",
 		"hermajan/dobine": "^0.1.0",
 		"hermajan/fazette": "^0.2.0",
 		"kdyby/doctrine": "^3.3",
 		"nette/nette": "^2.4",
-		"vlucas/phpdotenv": "^2.5"
+		"tracy/tracy": "^2.6",
+		"vlucas/phpdotenv": "^3.4"
 	},
 	"require-dev": {
-		"nette/tester": "^2.0"
+		"nette/tester": "^2.2",
+		"phpstan/phpstan": "^0.11.12",
+		"phpstan/phpstan-doctrine": "^0.11.5",
+		"phpstan/phpstan-nette": "^0.11.1",
+		"phpstan/phpstan-shim": "^0.11.12"
 	}
 }
