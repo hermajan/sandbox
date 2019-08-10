@@ -13,7 +13,7 @@ function help() {
 # Runs PHPStan
 function phpstan() {
     echo -e "PHPStan"
-    vendor/bin/phpstan analyse -l 4 -c phpstan.neon app tests
+    vendor/bin/phpstan analyse app tests -c phpstan.neon
 }
 
 # Validates entities
@@ -36,6 +36,13 @@ function all() {
     phpstan
     doctrine
     tester
+}
+
+function ci() {
+	local results=0
+    phpstan || results=$((results+$?))
+    tester || results=$((results+$?))
+    return ${results}
 }
 
 if [[ "${COMMAND}" == "" ]]; then
