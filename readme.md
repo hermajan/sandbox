@@ -1,4 +1,6 @@
 # Sandbox
+[![Build Status](https://travis-ci.com/hermajan/sandbox.svg?branch=master)](https://travis-ci.com/hermajan/sandbox)
+
 Sandbox for websites.
 
 ## Installation
