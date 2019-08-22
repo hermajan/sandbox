@@ -5,8 +5,9 @@ COMMAND=$1
 
 function help() {
     echo "all - runs all tests"
+	echo "ci - runs tests for continuous integration"
+	echo "doctrine - validates entities"
     echo "phpstan - runs PHPStan"
-    echo "doctrine - validates entities"
     echo "tester - runs Nette Tester tests"
 }
 
@@ -29,7 +30,7 @@ function tester() {
     vendor/bin/tester -C -s tests tests
 
     # PHP version of script for running tests
-    #php ../vendor/nette/tester/src/tester.php -C -s tests test
+    #php "vendor/nette/tester/src/tester.php" -C -s tests test
 }
 
 function all() {
@@ -40,9 +41,9 @@ function all() {
 
 function ci() {
 	local results=0
-    phpstan || results=$((results+$?))
-    tester || results=$((results+$?))
-    return ${results}
+	phpstan || results=$((results+$?))
+	tester || results=$((results+$?))
+	return ${results}
 }
 
 if [[ "${COMMAND}" == "" ]]; then
