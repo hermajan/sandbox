@@ -27,10 +27,7 @@ function doctrine() {
 function tester() {
     # Default shell script for running tests from `tests` folder
     echo -e "Nette Tester"
-    vendor/bin/tester -C -s tests tests
-
-    # PHP version of script for running tests
-    #php "vendor/nette/tester/src/tester.php" -C -s tests test
+    php "vendor/nette/tester/src/tester.php" -C -s tests
 }
 
 function all() {
@@ -41,9 +38,9 @@ function all() {
 
 function ci() {
 	local results=0
-	phpstan || results=$((results+$?))
-	tester || results=$((results+$?))
-	return ${results}
+    phpstan || results=$((results+$?))
+    tester || results=$((results+$?))
+    exit ${results}
 }
 
 if [[ "${COMMAND}" == "" ]]; then

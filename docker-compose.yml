@@ -6,6 +6,7 @@ networks:
 
 services:
     db:
+        container_name: sandbox_db
         image: mysql:5.7
         restart: always
         networks:
@@ -21,14 +22,15 @@ services:
             MYSQL_PASSWORD: heslo
 
     www:
-        networks:
-            - docker_network
+        container_name: sandbox_www
+        build: .docker
         depends_on:
             - db
-        build: .docker
+        restart: always
+        networks:
+            - docker_network
         ports:
             - 80:80
-        restart: always
         volumes:
             - ./:/var/www/html
             - ./.docker/apache.conf:/etc/apache2/sites-enabled/000-default.conf

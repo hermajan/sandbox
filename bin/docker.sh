@@ -52,7 +52,7 @@ function ssh() {
         USER=$1
     fi
 
-    docker exec -u ${USER} -it sandbox_www_1 bash
+    docker exec -u ${USER} -it sandbox_www bash
 }
 
 if [[ "${COMMAND}" == "" ]]; then

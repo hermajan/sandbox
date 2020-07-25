@@ -54,6 +54,8 @@
 	<script src="{$basePath}/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="{$basePath}/vendor/hermajan/booty/js/booty.js"></script>
 	<script src="{$basePath}/dist/script.js"></script>
-	{include #scripts}
+	{ifset #scripts}
+    	{include #scripts}
+	{/ifset}
 </body>
 </html>
