@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +10,9 @@
 
 	<title>{ifset title}{include title|stripHtml} {$meta["separator"]}{else}{$meta["title"]}{/ifset} {$meta["name"]}</title>
 
-	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
-	<link rel="stylesheet" media="all" href="{$basePath}/dist/libraries.css">
-	<link rel="stylesheet" media="screen" href="{$basePath}/dist/style.css">
+	<link rel="shortcut icon" href="{$baseUrl}/favicon.ico">
+	<link rel="stylesheet" media="all" href="{$baseUrl}/{='dist/libraries.css'|filectime}">
+	<link rel="stylesheet" media="screen" href="{$baseUrl}/{='dist/style.css'|filectime}">
 	{*<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">*}
 </head>
 
@@ -52,7 +52,6 @@
 
 	<script src="{$basePath}/node_modules/jquery/dist/jquery.js"></script>
 	<script src="{$basePath}/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="{$basePath}/vendor/hermajan/booty/js/booty.js"></script>
 	<script src="{$basePath}/dist/script.js"></script>
 	{ifset #scripts}
     	{include #scripts}

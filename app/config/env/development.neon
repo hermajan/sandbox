@@ -1,0 +1,21 @@
+application:
+	silentLinks: false
+	
+nettrine.dbal:
+	connection:
+		host: db
+		user: root
+		password: 'heslo'
+		dbname: sandbox
+
+tracy:
+	strictMode: true
+	showBar: true
+	showLocation: true
+	bar:
+		- Nextras\MailPanel\MailPanel(%tempDir%/mail-panel-latte)
+
+services:
+	nette.mailer:
+		class: Nette\Mail\IMailer
+		factory: Nextras\MailPanel\FileMailer(%tempDir%/mail-panel-mails)
