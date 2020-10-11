@@ -17,12 +17,12 @@
 	"require": {
 		"php": "^7.4",
 		"contributte/console": "^0.8.0",
-		"contributte/latte": "dev-master",
 		"doctrine/dbal": "^2.10",
 		"doctrine/orm": "^2.7",
 		"hermajan/dobine": "^0.3.0",
 		"hermajan/fazette": "^0.3.0",
 		"latte/latte": "^2.8",
+		"nette/application": "^3.0",
 		"nette/nette": "^3.0",
 		"nettrine/annotations": "^0.6.2",
 		"nettrine/orm": "^0.7.0",

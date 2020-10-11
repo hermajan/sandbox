@@ -1,7 +1,6 @@
-#
 # WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
 # https://nette.org/security-warning
-#
+
 php:
 	date.timezone: Europe/Prague
 	zlib.output_compression: yes
@@ -24,10 +23,6 @@ session:
 
 services:
 	router: App\Routers\RouterFactory::createRouter
-
-	nette.latteFactory:
-		setup:
-			- addFilter("filectime", [Contributte\Latte\Filters\FilectimeFilter, "filter"])
 
 tracy:
 	maxLength: 500

@@ -41,6 +41,8 @@ class Bootstrap {
 		}
 		$configurator->setTempDirectory($tempDir);
 		
+		define("WWW_DIR", __DIR__."/../");
+		
 		// Enable RobotLoader - this will load all classes automatically
 		$configurator->createRobotLoader()
 			->addDirectory(__DIR__)

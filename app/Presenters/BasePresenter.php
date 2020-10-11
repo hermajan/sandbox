@@ -18,4 +18,12 @@ abstract class BasePresenter extends Presenter {
 		$this->template->menuFile = "#menu.latte";
 		$this->template->footerFile = "#footer.latte";
 	}
+	
+	public function beforeRender() {
+		if($_ENV["APP_ENV"] == "production") {
+			$this->template->minified = ".min";
+		} else {
+			$this->template->minified = "";
+		}
+	}
 }

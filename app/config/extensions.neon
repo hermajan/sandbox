@@ -1,6 +1,5 @@
 extensions:
 	console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
-	filters: Contributte\Latte\DI\FiltersExtension
 
 	nettrine.annotations: Nettrine\Annotations\DI\AnnotationsExtension
 	nettrine.cache: Nettrine\Cache\DI\CacheExtension
@@ -28,5 +27,5 @@ search:
 		in: %appDir%/models
 		extends: Dobine\Facades\DobineFacade
 		classes:
-			- Zitkino\*Facade
-			- Zitkino\*\*Facade
+			- App\*Facade
+			- App\*\*Facade
