@@ -14,7 +14,7 @@ function help() {
 # Runs PHPStan
 function phpstan() {
     echo -e "PHPStan"
-    vendor/bin/phpstan analyse app tests -c phpstan.neon
+    vendor/bin/phpstan analyse app tests -c app/config/phpstan.neon
 }
 
 # Validates entities

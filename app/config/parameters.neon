@@ -1,4 +1,7 @@
 parameters:
+	database:
+		prefix: "s_"
+
 	meta:
 		color: "#5a7db0"
 		description: ""

@@ -15,5 +15,8 @@
 /app/config/production.neon
 /desktop.ini
 
+/dist
+
 !.htaccess
 !web.config
+!**/.gitkeep

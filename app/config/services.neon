@@ -1,0 +1,4 @@
+services:
+	tablePrefix:
+		factory: Dobine\Subscribers\TablePrefixSubscriber(%database%)
+		tags: [nettrine.subscriber]

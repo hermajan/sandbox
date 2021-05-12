@@ -1,0 +1,13 @@
+application:
+	silentLinks: true
+	
+nettrine.dbal:
+	connection:
+		host: db
+		user: root
+		password: 'heslo'
+		dbname: sandbox
+
+tracy:
+	strictMode: false
+	showBar: false
