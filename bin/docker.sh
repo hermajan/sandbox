@@ -3,60 +3,100 @@
 COMMAND=$1
 
 function help() {
-	echo "setup - setup system settings"
-    echo "start - build and up container"
-    echo "stop - down container"
-    echo "logs - list logs"
-    echo "list - list containers"
-    echo "restart - down and start container"
-    echo "ssh - login to container"
-}
+	echo -e "usage:
+    \t bash docker.sh COMMAND"
 
-function start() {
-    docker-compose up -d --build
-}
-
-function stop() {
-    docker-compose down
+    echo -e "commands:
+    \t clean - cleans state of Docker for running container
+    \t down - downs container (stops and removes it)
+    \t ip - prints IP addresses
+    \t list - lists containers
+    \t logs - lists logs
+    \t port [NUMBER] - stops containers on port from parameter NUMBER
+    \t prune - prunes containers (removes unused containers)
+    \t restart - downs and starts container
+    \t ssh - logins to container
+    \t start - builds and startups container
+    \t stop - stops container"
 }
 
 function clean() {
-	docker system prune -a
+	# stops ports needed for container
+	local PORTS=(":80->80/" ":443->443/" ":3306->3306/")
+	for PORT in "${PORTS[@]}"; do
+		port "${PORT}"
+	done
+}
+
+function down() {
+	docker-compose down
 }
 
 function ip() {
 	echo "www"
-	docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sandbox_www_1
+	docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' hermajan_www
 
 	echo "database"
-	docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sandbox_db_1
-}
-
-function logs() {
-    docker-compose logs
+	docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' hermajan_db
 }
 
 function list() {
-    docker-compose ps
+	docker-compose ps
+}
+
+function logs() {
+	docker-compose logs
+}
+
+function port() {
+	docker ps
+	echo -e "\n"
+
+	echo "Looking for a container on port: ${1///}"
+	ID=$(docker container ls --format="{{.ID}}\t{{.Ports}}" | grep ${1///} | awk '{print $1}')
+
+	# if ID is not empty
+	if [ ! -z "${ID}" ]; then
+		echo "Found container ID: ${ID} - stopping it"
+		docker container stop ${ID}
+	else
+		echo "Not found container on port: ${1///}"
+	fi
+}
+
+function prune() {
+	docker system prune -a
 }
 
 function restart() {
-    stop
-    start
+	down
+	start
 }
 
 function ssh() {
-    local USER="root"
+	local USER="root"
 
-    if [[ "${1}" != "" ]]; then
-        USER=$1
-    fi
+	if [[ "${1}" != "" ]]; then
+		USER=$1
+	fi
 
-    docker exec -u ${USER} -it sandbox_www bash
+	docker exec -u ${USER} -it "sandbox_www" bash
+}
+
+function start() {
+	clean
+	echo -e "\n"
+	docker-compose up -d --build
+	echo -e "\n"
+	list
+}
+
+function stop() {
+	docker-compose stop
 }
 
 if [[ "${COMMAND}" == "" ]]; then
-    help
+	help
 fi
 
 # run command

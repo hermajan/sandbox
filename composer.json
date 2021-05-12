@@ -1,6 +1,6 @@
 {
 	"name": "hermajan/sandbox",
-	"description": "The sandbox is a pre-packaged Nette Framework project, basic configured structure for your application.",
+	"description": "Pre-prepared Nette project for creation of website.",
 	"type": "project",
 	"license": "MIT",
 	"homepage": "https://hermajan.net/sandbox",
@@ -17,6 +17,7 @@
 	"require": {
 		"php": "^7.4",
 		"contributte/console": "^0.8.0",
+		"contributte/logging": "^0.6.0",
 		"doctrine/dbal": "^2.10",
 		"doctrine/orm": "^2.7",
 		"hermajan/dobine": "^0.3.0",
@@ -27,7 +28,7 @@
 		"nettrine/annotations": "^0.6.2",
 		"nettrine/orm": "^0.7.0",
 		"nextras/mail-panel": "^2.5",
-		"tracy/tracy": "^2.7",
+		"tracy/tracy": "^2.8",
 		"vlucas/phpdotenv": "^5.1"
 	},
 	"require-dev": {

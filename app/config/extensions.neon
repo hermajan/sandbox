@@ -1,5 +1,6 @@
 extensions:
 	console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
+	logging: Contributte\Logging\DI\TracyLoggingExtension
 
 	nettrine.annotations: Nettrine\Annotations\DI\AnnotationsExtension
 	nettrine.cache: Nettrine\Cache\DI\CacheExtension
@@ -9,6 +10,9 @@ extensions:
 	nettrine.orm.annotations: Nettrine\ORM\DI\OrmAnnotationsExtension
 	nettrine.orm.cache: Nettrine\ORM\DI\OrmCacheExtension
 	nettrine.orm.console: Nettrine\ORM\DI\OrmConsoleExtension(%consoleMode%)
+
+logging:
+	logDir: %appDir%/../_log
 
 nettrine.orm.annotations:
 	mapping:
