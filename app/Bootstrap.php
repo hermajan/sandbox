@@ -49,9 +49,6 @@ class Bootstrap {
 			->register();
 		
 		$configurator->addConfig(__DIR__."/config/config.neon");
-		$configurator->addConfig(__DIR__."/config/extensions.neon");
-		$configurator->addConfig(__DIR__."/config/services.neon");
-		$configurator->addConfig(__DIR__."/config/parameters.neon");
 		$configurator->addConfig(__DIR__."/config/env/".$_ENV["APP_ENV"].".neon");
 		
 		return $configurator;
