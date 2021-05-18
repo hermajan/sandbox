@@ -24,7 +24,7 @@ class TestFacade extends DobineFacade {
 	 * @param int $id
 	 * @return Test|object|null
 	 */
-	public function getById($id): ?Test {
+	public function getById($id): ?object {
 		return $this->repository->findOneBy(["id" => $id]);
 	}
 }

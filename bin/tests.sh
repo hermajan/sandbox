@@ -20,7 +20,7 @@ function phpstan() {
 # Validates entities
 function doctrine() {
     echo -e "Doctrine entities validation"
-    php "index.php" orm:validate-schema
+    php "www/index.php" orm:validate-schema
 }
 
 # Runs Nette Tester tests
