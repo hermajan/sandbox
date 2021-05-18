@@ -12,22 +12,22 @@ function help() {
 
 # Cleans cache
 function clean() {
-    php "index.php" orm:clear-cache:metadata
+    php "www/index.php" orm:clear-cache:metadata
 }
 
 # Generates entities from database to classes
 function entities() {
-    php "index.php" orm:convert-mapping --namespace="App\Models\\" --force --from-database annotation ".temp"
+    php "www/index.php" orm:convert-mapping --namespace="App\Models\Entity\\" --force --from-database annotation "temp"
 }
 
 # Updates database schema from entities
 function update() {
-    php "index.php" orm:schema-tool:update --dump-sql
+    php "www/index.php" orm:schema-tool:update --dump-sql
 
     echo -e "\nDo you want to update schema?"
     select structure in "Yes" "No"; do
         case $structure in
-            "Yes") php "index.php" orm:schema-tool:update --force; break;;
+            "Yes") php "www/index.php" orm:schema-tool:update --force; break;;
             "No") echo "Nothing was updated!"; break;;
             *) echo "Nothing was updated!"; break;;
         esac
@@ -36,7 +36,7 @@ function update() {
 
 # Validates schema
 function validate() {
-    php "index.php" orm:validate-schema
+    php "www/index.php" orm:validate-schema
 }
 
 if [[ "${COMMAND}" == "" ]]; then

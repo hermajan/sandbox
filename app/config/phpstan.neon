@@ -4,6 +4,12 @@ parameters:
 		- %currentWorkingDirectory%/app/
 		- %currentWorkingDirectory%/tests/
 
+	excludes_analyse:
+		- /.temp/*
+
+	fileExtensions:
+		- php
+
 includes:
 	- %currentWorkingDirectory%/vendor/phpstan/phpstan-nette/extension.neon
 	- %currentWorkingDirectory%/vendor/phpstan/phpstan-nette/rules.neon

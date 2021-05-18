@@ -1,0 +1,28 @@
+# Nettrine extensions
+extensions:
+	nettrine.annotations: Nettrine\Annotations\DI\AnnotationsExtension
+	nettrine.cache: Nettrine\Cache\DI\CacheExtension
+
+	nettrine.dbal: Nettrine\DBAL\DI\DbalExtension
+	nettrine.dbal.console: Nettrine\DBAL\DI\DbalConsoleExtension(%consoleMode%)
+
+	nettrine.orm: Nettrine\ORM\DI\OrmExtension
+	nettrine.orm.annotations: Nettrine\ORM\DI\OrmAnnotationsExtension
+	nettrine.orm.cache: Nettrine\ORM\DI\OrmCacheExtension
+	nettrine.orm.console: Nettrine\ORM\DI\OrmConsoleExtension(%consoleMode%)
+
+nettrine.dbal:
+	debug:
+		panel: %debugMode%
+		sourcePaths: [%appDir%]
+	connection:
+		charset: UTF8
+		driver: pdo_mysql
+
+nettrine.orm:
+	configuration:
+		autoGenerateProxyClasses: %debugMode%
+
+nettrine.orm.annotations:
+	mapping:
+		App/Models: %appDir%/models

@@ -27,12 +27,12 @@ function styles() {
 	return gulp.src(files.styles.path, {sourcemaps: true})
 		.pipe(sass({outputStyle: "expanded"}).on("error", sass.logError)) // compiles SCSS to CSS
 		.pipe(autoprefixer()) // adds vendor prefixes to CSS rules
-		.pipe(gulp.dest("dist")) // puts final CSS in dist folder
+		.pipe(gulp.dest("www/css")) // puts final CSS in dist folder
 		.pipe(sourcemaps.init()) // initializes sourcemaps first
 		.pipe(sass({outputStyle: "compressed"}).on("error", sass.logError)) // compiles to CSS and minifies CSS files
 		.pipe(rename({suffix: ".min"}))
 		.pipe(sourcemaps.write(".")) // writes sourcemaps file in current directory
-		.pipe(gulp.dest("dist"));
+		.pipe(gulp.dest("www/css"));
 }
 
 // Concatenates and uglifies JS files
@@ -42,7 +42,7 @@ function javascripts() {
 		.pipe(concat("scripts.js"))
 		.pipe(terser()) // minifies file
 		.pipe(sourcemaps.write(".")) // writes sourcemaps file in current directory
-		.pipe(gulp.dest("dist"));
+		.pipe(gulp.dest("www/js"));
 }
 
 // Watch SCSS and JS files for changes

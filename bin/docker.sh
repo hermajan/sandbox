@@ -34,10 +34,10 @@ function down() {
 
 function ip() {
 	echo "www"
-	docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' hermajan_www
+	docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sandbox_www
 
 	echo "database"
-	docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' hermajan_db
+	docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sandbox_db
 }
 
 function list() {

@@ -1,5 +1,6 @@
 parameters:
 	database:
+		namespace: "App"
 		prefix: "s_"
 
 	meta:

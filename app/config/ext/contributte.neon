@@ -1,0 +1,10 @@
+# Contributte extensions
+extensions:
+	console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
+	logging: Contributte\Logging\DI\TracyLoggingExtension
+
+console:
+	lazy: true
+
+logging:
+	logDir: %appDir%/../_log

@@ -11,7 +11,7 @@
 	<title>{ifset title}{include title|stripHtml} {$meta["separator"]}{else}{$meta["title"]}{/ifset} {$meta["name"]}</title>
 
 	<link rel="shortcut icon" href="{$baseUrl}/favicon.ico">
-	<link rel="stylesheet" media="all" href="{$baseUrl}/dist/styles{$minified}.css?v={filemtime(WWW_DIR.'/dist/styles'.$minified.'.css')}">
+	<link rel="stylesheet" media="all" href="{$baseUrl}/www/css/styles{$minified}.css?v={filemtime(WWW_DIR.'/www/css/styles'.$minified.'.css')}">
 	{*<link rel="stylesheet" media="print" href="{$baseUrl}/dist/print{$minified}.css?v={filemtime(WWW_DIR.'/dist/print'.$minified.'.css')}">*}
 </head>
 
@@ -49,9 +49,7 @@
 		</div>
 	</footer>
 
-	<script src="{$basePath}/node_modules/jquery/dist/jquery.js"></script>
-	<script src="{$basePath}/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="{$baseUrl}/dist/scripts.js?v={filemtime(WWW_DIR.'/dist/scripts.js')}"></script>
+	<script src="{$baseUrl}/www/js/scripts.js?v={filemtime(WWW_DIR.'/www/js/scripts.js')}"></script>
 	{ifset #scripts}
     	{include #scripts}
 	{/ifset}

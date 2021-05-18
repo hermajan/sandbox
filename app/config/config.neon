@@ -1,6 +1,11 @@
 # WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
 # https://nette.org/security-warning
 
+includes:
+	- parameters.neon
+	- services.neon
+	- extensions.neon
+
 php:
 	date.timezone: Europe/Prague
 	zlib.output_compression: yes
@@ -21,10 +26,18 @@ latte:
 session:
 	expiration: 14 days
 
+search:
+	facades:
+		in: %appDir%/models
+		extends: Dobine\Facades\DobineFacade
+		classes:
+			- App\**\*Facade
+
 services:
 	router: App\Routers\RouterFactory::createRouter
 
 tracy:
+	logSeverity: E_ALL
 	maxLength: 500
 	maxDepth: 5
 	netteMailer: true

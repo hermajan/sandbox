@@ -14,6 +14,7 @@ RUN apt-get clean && apt-get update && apt-cache search php-mysql && apt-get ins
     libpng-dev \
     libssl-dev \
     libwebp-dev \
+    libxml2-dev \
     linux-libc-dev \
     memcached libmemcached-dev libmemcached-tools \
     nodejs \
@@ -34,6 +35,8 @@ RUN curl -L -o /tmp/memcached.tar.gz "https://api.github.com/repos/php-memcached
 RUN a2enmod rewrite ssl headers
 
 RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg --with-webp
+RUN docker-php-ext-configure intl
+RUN docker-php-ext-configure zip
 RUN docker-php-ext-install \
     curl \
     gd \
@@ -41,6 +44,7 @@ RUN docker-php-ext-install \
     mysqli \
     pdo \
     pdo_mysql \
+    xml \
     zip
 
 # Composer

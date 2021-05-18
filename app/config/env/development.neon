@@ -1,6 +1,9 @@
 application:
 	silentLinks: false
-	
+
+console:
+	url: http://localhost/
+
 nettrine.dbal:
 	connection:
 		host: db
