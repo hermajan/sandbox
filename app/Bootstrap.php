@@ -1,7 +1,8 @@
-<?php
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 namespace App;
+
+require_once __DIR__."/constants.php";
 
 use Nette\Configurator;
 
@@ -40,8 +41,6 @@ class Bootstrap {
 			mkdir($tempDir, 0777, true);
 		}
 		$configurator->setTempDirectory($tempDir);
-		
-		define("WWW_DIR", __DIR__."/../");
 		
 		// Enable RobotLoader - this will load all classes automatically
 		$configurator->createRobotLoader()

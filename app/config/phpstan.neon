@@ -1,5 +1,9 @@
 parameters:
 	level: 4
+
+	bootstrapFiles:
+		- %currentWorkingDirectory%/app/constants.php
+
 	scanDirectories:
 		- %currentWorkingDirectory%/app/
 		- %currentWorkingDirectory%/tests/
