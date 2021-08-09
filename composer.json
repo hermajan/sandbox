@@ -9,11 +9,20 @@
 	},
 	"config": {
 		"vendor-dir": "vendor",
+		"optimize-autoloader": true,
+		"platform-check": true,
 		"preferred-install": "dist",
-		"sort-packages": true,
-		"optimize-autoloader": true
+		"sort-packages": true
 	},
 	"minimum-stability": "stable",
+	"scripts": {
+		"pre-install-cmd": [
+			"composer check-platform-reqs"
+		],
+		"pre-update-cmd": [
+			"composer check-platform-reqs"
+		]
+	},
 	"require": {
 		"php": "^7.4",
 		"contributte/console": "^0.8.0",
