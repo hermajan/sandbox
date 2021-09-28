@@ -1,14 +1,16 @@
+{templateType App\Templates\BaseTemplate}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{$locale}">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="theme-color" content="{$meta["color"]}">
-	<meta name="description" content="{$meta["description"]}">
-	<meta name="author" content="{$meta["author"]}">
-	<meta name="robots" content="{$meta["robots"]}" n:ifset="$meta['robots']">
+	<meta name="theme-color" content="{$metaService->getParameter("color")}">
+	<meta name="description" content="{$metaService->getParameter("description")}">
+	<meta name="author" content="{$metaService->getParameter("author")}">
+	<meta name="robots" content="{$metaService->getParameter("robots")}" n:if="$metaService->getParameter('robots')">
 
-	<title>{ifset title}{include title|stripHtml} {$meta["separator"]}{else}{$meta["title"]}{/ifset} {$meta["name"]}</title>
+	<title>{ifset title}{include title|stripHtml} {$metaService->getParameter("separator")}{else}{$metaService->getParameter("title")}{/ifset} {$metaService->getParameter("name")}</title>
 
 	<link rel="shortcut icon" href="{$baseUrl}/favicon.ico">
 	<link rel="stylesheet" media="all" href="{$baseUrl}/www/css/styles{$minified}.css?v={filemtime(WWW_DIR.'/www/css/styles'.$minified.'.css')}">
@@ -16,14 +18,26 @@
 </head>
 
 <body>
-	<header id="header" class="navbar navbar-dark navbar-expand-md" n:ifset="$headerFile">
+	<header id="header" class="navbar navbar-dark navbar-expand-md" n:ifset="$navbarFile">
 		<div class="container-fluid">
-			{include $headerFile}
+			{include $navbarFile}
 		</div>
 	</header>
 
 	<main id="main">
 		<div class="container-fluid">
+			<div class="row">
+				<header class="col-12" id="header">
+					{ifset header}
+						{include #header}
+					{else}
+						<div n:ifset="title">
+							<h1 class="page-header display-4">{include title}</h1>
+							<div class="lead" id="perex">{ifset perex}{include #perex}{/ifset}</div>
+						</div>
+					{/ifset}
+				</header>
+			</div>
 			<div class="row">
 				{ifset $menuFile}
 					{var $cols = "col-sm-8 col-md-9 col-lg-10"}

@@ -11,6 +11,10 @@ nettrine.dbal:
 		password: 'heslo'
 		dbname: sandbox
 
+nettrine.orm:
+	configuration:
+		autoGenerateProxyClasses: ::constant(Doctrine\Common\Proxy\AbstractProxyFactory::AUTOGENERATE_ALWAYS)
+
 tracy:
 	strictMode: true
 	showBar: true

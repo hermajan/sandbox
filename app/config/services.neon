@@ -2,3 +2,5 @@ services:
 	tablePrefix:
 		factory: Dobine\Subscribers\TablePrefixSubscriber(%database%)
 		tags: [nettrine.subscriber]
+
+	metaService: App\Services\MetaService(%meta%)

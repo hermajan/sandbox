@@ -1,5 +1,6 @@
 # Sandbox
-[![Build Status](https://travis-ci.com/hermajan/sandbox.svg?branch=master)](https://travis-ci.com/hermajan/sandbox)
+[![Tests](https://github.com/hermajan/sandbox/workflows/Tests/badge.svg)](https://github.com/hermajan/sandbox/actions?query=workflow%3ATests)
+[![Packagist](https://img.shields.io/packagist/v/hermajan/sandbox.svg)](https://packagist.org/packages/hermajan/sandbox)
 
 Sandbox for websites.
 

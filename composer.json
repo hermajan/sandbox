@@ -9,24 +9,23 @@
 	},
 	"config": {
 		"vendor-dir": "vendor",
-		"optimize-autoloader": true,
 		"platform-check": true,
 		"preferred-install": "dist",
-		"sort-packages": true
+		"sort-packages": true,
+		"optimize-autoloader": true
 	},
+	"prefer-stable": true,
 	"minimum-stability": "stable",
 	"scripts": {
 		"pre-install-cmd": [
 			"composer check-platform-reqs"
-		],
-		"pre-update-cmd": [
-			"composer check-platform-reqs"
 		]
 	},
 	"require": {
-		"php": "^7.4",
+		"php": "^7.3",
 		"contributte/console": "^0.8.0",
 		"contributte/logging": "^0.6.0",
+		"contributte/translation": "^0.9.3",
 		"doctrine/dbal": "^2.10",
 		"doctrine/orm": "^2.7",
 		"hermajan/dobine": "^0.3.0",
@@ -45,5 +44,8 @@
 		"phpstan/phpstan": "^0.12.33",
 		"phpstan/phpstan-doctrine": "^0.12.19",
 		"phpstan/phpstan-nette": "^0.12.8"
+	},
+	"suggest": {
+		"geniv/nette-thumbnail": "Latte macro for creating image thumbnails."
 	}
 }

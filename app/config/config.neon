@@ -28,7 +28,7 @@ session:
 
 search:
 	facades:
-		in: %appDir%/models
+		in: %appDir%/Models
 		extends: Dobine\Facades\DobineFacade
 		classes:
 			- App\**\*Facade

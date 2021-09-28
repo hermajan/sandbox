@@ -4,20 +4,20 @@ COMMAND=$1
 
 function help() {
 	echo -e "usage:
-    \t bash docker.sh COMMAND"
+	\t bash docker.sh COMMAND"
 
-    echo -e "commands:
-    \t clean - cleans state of Docker for running container
-    \t down - downs container (stops and removes it)
-    \t ip - prints IP addresses
-    \t list - lists containers
-    \t logs - lists logs
-    \t port [NUMBER] - stops containers on port from parameter NUMBER
-    \t prune - prunes containers (removes unused containers)
-    \t restart - downs and starts container
-    \t ssh - logins to container
-    \t start - builds and startups container
-    \t stop - stops container"
+	echo -e "commands:
+	\t clean - cleans state of Docker for running container
+	\t down - downs container (stops and removes it)
+	\t ip - prints IP addresses
+	\t list - lists containers
+	\t logs - lists logs
+	\t port [NUMBER] - stops containers on port from parameter NUMBER
+	\t prune - prunes containers (removes unused containers)
+	\t restart - downs and starts container
+	\t ssh - logins to container
+	\t start - builds and startups container
+	\t stop - stops container"
 }
 
 function clean() {
@@ -68,8 +68,13 @@ function prune() {
 	docker system prune -a
 }
 
-function restart() {
+function reboot() {
 	down
+	start
+}
+
+function restart() {
+	stop
 	start
 }
 
@@ -80,7 +85,7 @@ function ssh() {
 		USER=$1
 	fi
 
-	docker exec -u ${USER} -it "sandbox_www" bash
+	docker-compose exec -u ${USER} www bash
 }
 
 function start() {

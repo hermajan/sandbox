@@ -20,17 +20,10 @@ class Test {
 	 */
 	private $value;
 	
-	/**
-	 * @return string
-	 */
 	public function getValue(): string {
 		return $this->value;
 	}
 	
-	/**
-	 * @param string $value
-	 * @return Test
-	 */
 	public function setValue(string $value): Test {
 		$this->value = $value;
 		return $this;

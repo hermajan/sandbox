@@ -19,10 +19,6 @@ final class ErrorPresenter implements IPresenter {
 		$this->logger = $logger;
 	}
 	
-	/**
-	 * @param Request $request
-	 * @return IResponse
-	 */
 	public function run(Request $request): IResponse {
 		$e = $request->getParameter("exception");
 		

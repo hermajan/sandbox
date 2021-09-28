@@ -2,9 +2,22 @@
 extensions:
 	console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
 	logging: Contributte\Logging\DI\TracyLoggingExtension
+	translation: Contributte\Translation\DI\TranslationExtension
 
 console:
 	lazy: true
 
 logging:
 	logDir: %appDir%/../_log
+
+translation:
+	locales:
+		default: en
+		fallback: [cs, en]
+		whitelist: [cs, en]
+
+	dirs:
+		- %appDir%/locale
+
+	loaders:
+		neon: Contributte\Translation\Loaders\Neon

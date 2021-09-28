@@ -16,13 +16,13 @@ nettrine.dbal:
 		panel: %debugMode%
 		sourcePaths: [%appDir%]
 	connection:
-		charset: UTF8
+		charset: utf8mb4
 		driver: pdo_mysql
 
 nettrine.orm:
 	configuration:
-		autoGenerateProxyClasses: %debugMode%
+		autoGenerateProxyClasses: ::constant(Doctrine\Common\Proxy\AbstractProxyFactory::AUTOGENERATE_FILE_NOT_EXISTS)
 
 nettrine.orm.annotations:
 	mapping:
-		App/Models: %appDir%/models
+		App/Models: %appDir%/Models

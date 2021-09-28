@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: ['7.4']
+        php: ['7.3', '7.4']
         dependencies: ['', '--prefer-lowest']
     
     name: PHP ${{ matrix.php }} ${{ matrix.dependencies }}
@@ -35,8 +35,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-php-
             
-#       - name: Remove composer.lock
-#         run: rm -rf composer.lock
+      - name: Remove composer.lock
+        run: rm -rf composer.lock
 
       - name: Install dependencies
         if: steps.composer-cache.outputs.cache-hit != 'true'

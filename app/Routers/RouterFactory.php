@@ -9,10 +9,7 @@ use Nette\StaticClass;
 final class RouterFactory {
 	use StaticClass;
 	
-	/**
-	 * @return RouteList
-	 */
-	public static function createRouter() {
+	public static function createRouter(): RouteList {
 		$router = new RouteList;
 		$router[] = new Route("<presenter>/<action>", "Homepage:default");
 		return $router;

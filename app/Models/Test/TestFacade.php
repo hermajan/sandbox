@@ -10,7 +10,8 @@ use Nettrine\ORM\EntityManagerDecorator;
  * Class TestFacade
  */
 class TestFacade extends DobineFacade {
-	private EntityManagerDecorator $entityManager;
+	/** @var EntityManagerDecorator */
+	private $entityManager;
 	
 	/** @var EntityRepository */
 	private $repository;
