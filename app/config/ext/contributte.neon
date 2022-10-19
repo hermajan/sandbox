@@ -1,14 +1,10 @@
 # Contributte extensions
 extensions:
 	console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
-	logging: Contributte\Logging\DI\TracyLoggingExtension
 	translation: Contributte\Translation\DI\TranslationExtension
 
 console:
 	lazy: true
-
-logging:
-	logDir: %appDir%/../_log
 
 translation:
 	locales:

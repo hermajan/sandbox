@@ -3,7 +3,7 @@ declare(strict_types = 1);
 
 namespace App\Presenters;
 
-use Nette\Application\{BadRequestException, Helpers, IPresenter, IResponse, Request};
+use Nette\Application\{BadRequestException, Helpers, IPresenter, IResponse, Request, Response};
 use Nette\Application\Responses\{CallbackResponse, ForwardResponse};
 use Nette\Http\{IRequest, IResponse as HttpIResponse};
 use Nette\SmartObject;
@@ -12,14 +12,13 @@ use Tracy\ILogger;
 final class ErrorPresenter implements IPresenter {
 	use SmartObject;
 	
-	/** @var ILogger */
-	private $logger;
+	private ILogger $logger;
 	
 	public function __construct(ILogger $logger) {
 		$this->logger = $logger;
 	}
 	
-	public function run(Request $request): IResponse {
+	public function run(Request $request): Response {
 		$e = $request->getParameter("exception");
 		
 		if($e instanceof BadRequestException) {

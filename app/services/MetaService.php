@@ -2,14 +2,13 @@
 namespace App\Services;
 
 class MetaService {
-	private $parameters;
+	private array $parameters;
 
 	public function __construct(array $parameters) {
 		$this->parameters = $parameters;
 	}
 	
 	/**
-	 * @param string $key
 	 * @return array|string|null
 	 */
 	public function getParameter(string $key) {

@@ -10,8 +10,7 @@
 		"postinstall": "npx gulp setup"
 	},
 	"dependencies": {
-		"@hermajan/booty": "git+https://github.com/hermajan/booty.git",
-		"@hermajan/facolors": "^1.0.0"
+		"@hermajan/booty": "git+https://github.com/hermajan/booty.git"
 	},
 	"devDependencies": {
 		"gulp": "^4.0.2",

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Exam;
+namespace App\Models\Test;
 
 use Dobine\Facades\DobineFacade;
 use Doctrine\ORM\EntityRepository;
@@ -22,7 +22,7 @@ class TestFacade extends DobineFacade {
 	}
 	
 	/**
-	 * @param int $id
+	 * @param int|string $id
 	 * @return Test|object|null
 	 */
 	public function getById($id): ?object {

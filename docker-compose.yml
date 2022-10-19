@@ -6,7 +6,6 @@ networks:
 
 services:
     db:
-        container_name: sandbox_db
         image: mysql:5.7
         restart: always
         networks:
@@ -22,7 +21,6 @@ services:
             MYSQL_PASSWORD: heslo
 
     www:
-        container_name: sandbox_www
         build: .docker
         depends_on:
             - db

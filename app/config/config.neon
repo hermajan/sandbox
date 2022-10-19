@@ -19,10 +19,6 @@ application:
 di:
 	debugger: true
 
-latte:
-	macros:
-		- Fazette\Latte\Fa
-
 session:
 	expiration: 14 days
 

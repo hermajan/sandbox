@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Exam;
+namespace App\Models\Test;
 
 use Doctrine\ORM\Mapping as ORM;
 use Nettrine\ORM\Entity\Attributes\Id;
@@ -15,10 +15,9 @@ class Test {
 	use Id;
 	
 	/**
-	 * @var string
 	 * @ORM\Column(name="value", type="string", length=255, nullable=false)
 	 */
-	private $value;
+	private string $value;
 	
 	public function getValue(): string {
 		return $this->value;

@@ -4,29 +4,29 @@ declare(strict_types = 1);
 namespace App\Presenters;
 
 use App\Services\MetaService;
-use App\Templates\BaseTemplate;
 use Contributte\Translation\LocalesResolvers\Session;
 use Contributte\Translation\Translator;
 use Nette\Application\AbortException;
 use Nette\Application\UI\Presenter;
+use Nette\Bridges\ApplicationLatte\DefaultTemplate;
 
 /**
  * Base presenter for all application presenters.
  */
 abstract class BasePresenter extends Presenter {
 	/** @var Translator @inject */
-	public $translator;
+	public Translator $translator;
 	
 	/** @var Session @inject */
-	public $translatorSessionResolver;
+	public Session $translatorSessionResolver;
 	
 	/** @var MetaService @inject */
-	public $metaService;
+	public MetaService $metaService;
 	
 	public function startup() {
 		parent::startup();
 		
-		/** @var BaseTemplate $template */
+		/** @var DefaultTemplate $template */
 		$template = $this->getTemplate();
 		$template->setParameters([
 			"footerFile" => "#footer.latte",
@@ -44,7 +44,7 @@ abstract class BasePresenter extends Presenter {
 			$minified = "";
 		}
 		
-		/** @var BaseTemplate $template */
+		/** @var DefaultTemplate $template */
 		$template = $this->getTemplate();
 		$template->add("minified", $minified);
 	}

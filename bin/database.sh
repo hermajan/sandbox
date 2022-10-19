@@ -17,7 +17,7 @@ function clean() {
 
 # Generates entities from database to classes
 function entities() {
-    php "www/index.php" orm:convert-mapping --namespace="App\Models\Entity\\" --force --from-database annotation "temp"
+    php "www/index.php" orm:convert-mapping --namespace="App\Models\\" --force --from-database annotation ".temp"
 }
 
 # Updates database schema from entities

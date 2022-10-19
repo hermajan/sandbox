@@ -8,8 +8,8 @@ parameters:
 		- %currentWorkingDirectory%/app/
 		- %currentWorkingDirectory%/tests/
 
-	excludes_analyse:
-		- /.temp/*
+	excludePaths:
+		- %currentWorkingDirectory%/.temp/*
 
 	fileExtensions:
 		- php
@@ -18,3 +18,4 @@ includes:
 	- %currentWorkingDirectory%/vendor/phpstan/phpstan-nette/extension.neon
 	- %currentWorkingDirectory%/vendor/phpstan/phpstan-nette/rules.neon
 	- %currentWorkingDirectory%/vendor/phpstan/phpstan-doctrine/extension.neon
+	- %currentWorkingDirectory%/vendor/phpstan/phpstan-doctrine/rules.neon
