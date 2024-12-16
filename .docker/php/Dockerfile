@@ -1,4 +1,4 @@
-FROM php:7.4-apache
+FROM php:8.3-apache
 
 # System packages
 RUN apt-get clean && apt-get update && apt-cache search php-mysql && apt-get install --fix-missing -y \
@@ -7,28 +7,30 @@ RUN apt-get clean && apt-get update && apt-cache search php-mysql && apt-get ins
 	g++ \
 	git \
 	gnupg \
-	imagemagick \
 	libfreetype6-dev \
 	libicu-dev \
 	libjpeg62-turbo-dev \
-    libonig-dev \
+	libmagickwand-dev \
+	libonig-dev \
 	libpng-dev \
 	libssl-dev \
 	libwebp-dev \
 	libxml2-dev \
 	linux-libc-dev \
+	locales \
 	sudo \
 	vim \
 	wget \
 	zip libzip-dev
 
-# PHP extensions
+# Apache
 RUN a2enmod rewrite ssl headers
 
-RUN docker-php-ext-configure gd --with-freetype --with-webp --with-jpeg
-RUN docker-php-ext-configure intl
-RUN docker-php-ext-configure zip
+# PHP extensions
+RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg --with-webp
 RUN docker-php-ext-install \
+	curl \
+	exif \
 	gettext \
 	gd \
 	intl \

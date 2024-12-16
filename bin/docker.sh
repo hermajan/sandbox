@@ -20,7 +20,7 @@ function help() {
 }
 
 function build() {
-	docker-compose build
+	docker compose build
 }
 
 function clean() {
@@ -32,15 +32,15 @@ function clean() {
 }
 
 function down() {
-	docker-compose down
+	docker compose down
 }
 
 function list() {
-	docker-compose ps
+	docker compose ps
 }
 
 function logs() {
-	docker-compose logs
+	docker compose logs
 }
 
 function port() {
@@ -74,19 +74,19 @@ function restart() {
 }
 
 function ssh() {
-	docker-compose exec www bash
+	docker compose exec www bash
 }
 
 function start() {
 	clean
 	echo -e "\n"
-	docker-compose up -d --remove-orphans
+	docker compose up -d --remove-orphans
 	echo -e "\n"
 	list
 }
 
 function stop() {
-	docker-compose stop
+	docker compose stop
 }
 
 if [[ "${COMMAND}" == "" ]]; then

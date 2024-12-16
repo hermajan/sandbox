@@ -1,7 +1,7 @@
 const autoprefixer = require("gulp-autoprefixer");
 const concat = require("gulp-concat");
 const gulp = require("gulp");
-const sass = require("gulp-sass");
+const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require("gulp-sourcemaps");
 const terser = require("gulp-terser-js");
 const rename = require("gulp-rename");
@@ -28,10 +28,8 @@ function styles() {
 		.pipe(sass({outputStyle: "expanded"}).on("error", sass.logError)) // compiles SCSS to CSS
 		.pipe(autoprefixer()) // adds vendor prefixes to CSS rules
 		.pipe(gulp.dest("www/css")) // puts final CSS in dist folder
-		.pipe(sourcemaps.init()) // initializes sourcemaps first
 		.pipe(sass({outputStyle: "compressed"}).on("error", sass.logError)) // compiles to CSS and minifies CSS files
 		.pipe(rename({suffix: ".min"}))
-		.pipe(sourcemaps.write(".")) // writes sourcemaps file in current directory
 		.pipe(gulp.dest("www/css"));
 }
 
@@ -52,9 +50,18 @@ function watch() {
 
 // Export the default Gulp task so it can be run
 exports.default = gulp.series(
+	gulp.parallel(styles, javascripts)
+);
+
+exports.watch = gulp.series(
 	gulp.parallel(styles, javascripts), watch
 );
 
-exports.setup = gulp.series(
-	gulp.parallel(styles, javascripts)
-);
+function bootstrapFonts() {
+	gulp.src("node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff")
+		.pipe(gulp.dest("www/fonts"));
+
+	return gulp.src("node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2")
+		.pipe(gulp.dest("www/fonts"));
+}
+exports.bootstrap = gulp.series(bootstrapFonts);
